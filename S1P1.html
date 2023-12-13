@@ -500,19 +500,21 @@ ESERCIZIO 12) Crea un selettore per selezionare il secondo link del footer
 
 
         // EXTRA Crea con JavaScript la funzionalità per creare un alert col nome dell'autore ogni volta che il cursore passa sopra l'autore del post.
-        // function alert() {
-        //     alert("Autore è ")
-        // }
-        // document.addEventListener("DOMContentLoaded", function () {
-        //     let autor = document.querySelector(".blog-post a[href]");
-        //     console.log(autor)
 
-        //     autor.addEventListener("click", function () {
-        //         let authorName = autor.innerHTML;
-        //         console.log(authorName)
-        //         alert('Autore del post: ' + authorName);
-        //     })
-        // })
+        let autor = document.querySelectorAll(".blog-post a");
+        console.log(autor);
+        function alert1() {
+            alert("ciao " + autor[0].textContent)
+        }
+        autor[0].addEventListener("mouseover", alert1)
+        function alert2() {
+            alert("ciao " + autor[2].textContent)
+        }
+        autor[2].addEventListener("mouseover", alert2)
+        function alert3() {
+            alert("ciao " + autor[4].textContent)
+        }
+        autor[4].addEventListener("mouseover", alert3)
 
     </script>
 </body>
