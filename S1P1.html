@@ -459,62 +459,82 @@ ESERCIZIO 12) Crea un selettore per selezionare il secondo link del footer
         /* JS Exercises should go here */
 
         // EXTRA Crea con JavaScript la funzionalità per rimuovere il link "twitter" sotto alla sezione "Altro" nell'elemento "aside". Deve avvenire al caricamento della pagina, automticamente.
-        function canc() {
+        window.onload = function canc() {
             let twit = document.querySelector("aside .p-4:last-of-type ol li:nth-of-type(2) a");
             // console.log(twit);
             twit.parentNode.remove()
         }
-        canc()
+
         // EXTRA Crea con JavaScript la funzionalità per rimuovere il corrispondente elemento padre dal DOM cliccando sul link "Continua a leggere".
 
-        let parent = document.querySelector(".col-md-6.px-0")
-        // console.log(parent)
-        let parent2 = document.querySelector(".row.mb-2 .col-md-6:first-of-type");
-        // console.log(parent2)
-        let parent3 = document.querySelector(".row.mb-2 .col-md-6:last-of-type")
-        // console.log(parent3)
-        let el1 = document.querySelector("div .jumbotron a");
+        // let parent = document.querySelector(".col-md-6.px-0")
+        // // console.log(parent)
+        // let parent2 = document.querySelector(".row.mb-2 .col-md-6:first-of-type");
+        // // console.log(parent2)
+        // let parent3 = document.querySelector(".row.mb-2 .col-md-6:last-of-type")
+        // // console.log(parent3)
+        // let el1 = document.querySelector("div .jumbotron a");
 
-        let els = document.querySelectorAll(".row.mb-2 .col-md-6 a");
-        // console.log(els[0])
-        function remove() {
-            parent.parentNode.remove()
+        // let els = document.querySelectorAll(".row.mb-2 .col-md-6 a");
+        // // console.log(els[0])
+        // function remove() {
+        //     parent.parentNode.remove()
 
-        }
-        function remove2() {
-            parent2.style.display = "none"
+        // }
+        // function remove2() {
+        //     parent2.style.display = "none"
 
-        }
-        function remove3() {
-            parent3.style.display = "none"
-        }
-        el1.addEventListener("click", () => {
-            remove()
-        })
-        els[0].addEventListener("click", () => {
-            remove2()
-        })
-        els[1].addEventListener("click", () => {
-            remove3()
+        // }
+        // function remove3() {
+        //     parent3.style.display = "none"
+        // }
+        // el1.addEventListener("click", () => {
+        //     remove()
+        // })
+        // els[0].addEventListener("click", () => {
+        //     remove2()
+        // })
+        // els[1].addEventListener("click", () => {
+        //     remove3()
+        // })
+
+        let posts = document.querySelectorAll(".stretched-link");
+        // console.log(posts);
+        posts.forEach(element => {
+            element.addEventListener("click", () => {
+                element.parentNode.parentNode.parentNode.remove()
+            })
+        });
+        let post = document.querySelector(".font-weight-bold");
+        post.addEventListener("click", () => {
+            post.parentNode.parentNode.parentNode.remove()
         })
 
 
         // EXTRA Crea con JavaScript la funzionalità per creare un alert col nome dell'autore ogni volta che il cursore passa sopra l'autore del post.
 
+        // let autor = document.querySelectorAll(".blog-post a");
+        // console.log(autor);
+        // function alert1() {
+        //     alert("ciao " + autor[0].textContent)
+        // }
+        // autor[0].addEventListener("mouseover", alert1)
+        // function alert2() {
+        //     alert("ciao " + autor[2].textContent)
+        // }
+        // autor[2].addEventListener("mouseover", alert2)
+        // function alert3() {
+        //     alert("ciao " + autor[4].textContent)
+        // }
+        // autor[4].addEventListener("mouseover", alert3)
+
         let autor = document.querySelectorAll(".blog-post a");
-        console.log(autor);
-        function alert1() {
-            alert("ciao " + autor[0].textContent)
-        }
-        autor[0].addEventListener("mouseover", alert1)
-        function alert2() {
-            alert("ciao " + autor[2].textContent)
-        }
-        autor[2].addEventListener("mouseover", alert2)
-        function alert3() {
-            alert("ciao " + autor[4].textContent)
-        }
-        autor[4].addEventListener("mouseover", alert3)
+        autor.forEach(element => {
+            element.addEventListener("mouseover", () => {
+                alert(element.textContent)
+            })
+        });
+
 
     </script>
 </body>
